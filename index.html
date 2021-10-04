@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Greenthumb</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/select.css" />
+  <link rel="stylesheet" href="css/plant-card.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons//favicon-16x16.png">
+</head>
+
+<body>
+  <!-- hero section -->
+  <div id="hero-section">
+    <div class="containerHeroSection">
+      <img src="images/icons/logo-white.svg" alt="Greenthumb" />
+      <h1>Find your <br>
+        next green <br>
+        friend</h1>
+      <div id="arrow-down">
+        <a href="#search"><img src="images/icons/arrow-down.svg" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div id="search">
+    <div class="container filter">
+      <!-- sun filter -->
+      <div class="sun-filter">
+        <img src="images/illustrations/sun.png" />
+        <p><b>1.</b> Set the amount of <b>sunlight</b> <br> your plant will get. </p>
+        <select name="" id="select-sun" class="form-control" onfocus='this.size=3;' onblur='this.size=1;'
+          onchange='this.size=1; this.blur(); getOnChange(); callAPI();'>
+          <option value="" selected hidden>Select...</option>
+          <option value="high">high</option>
+          <option value="low">Low</option>
+          <option value="no">No sun</option>
+        </select>
+      </div>
+
+      <!-- water filter -->
+      <div class="water-filter">
+        <img src="images/illustrations/wateringcan.png" />
+        <p><b>2.</b> How often do you want to <br><b>water</b> your plant?</p>
+        <select name="" id="select-water" class="form-control" onfocus='this.size=3;' onblur='this.size=1;'
+          onchange='this.size=1; this.blur(); getOnChange(); callAPI();'>
+          <option value="" selected hidden>Select...</option>
+          <option value="rarely">Rarely</option>
+          <option value="regularly">Regularly</option>
+          <option value="daily">Daily</option>
+        </select>
+      </div>
+
+      <!-- Pet filter -->
+      <div class="pet-filter">
+        <img src="images/illustrations/dog.png" />
+        <p><b>3.</b> Do you have pets? Do <br> they <b>chew</b> plants?</p>
+        <select name="" id="select-pet" class="form-control" onfocus='this.size=2;' onblur='this.size=1;'
+          onchange='this.size=1; this.blur(); getOnChange(); callAPI();'>
+          <option value="" selected hidden>Select...</option>
+          <option value="false">No/They don’t care</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- No result yet section -->
+  <div id="no-results">
+    <div class="container no-results">
+      <div>
+        <h2>No results yet...</h2>
+        <p>Use the filters above to find <br> the plant that best fits your <br>environment :) </p>
+      </div>
+      <img class="center" src="images/illustrations/no-results.png" />
+    </div>
+  </div>
+
+  <!-- result section -->
+  <div id="results">
+    <div class="container results">
+      <img class="pick-img" src="images/illustrations/pick.png" />
+      <h2>Our picks for you</h2>
+      <div id='plantDiv'></div>
+      <div class="back-top">
+        <a href="#"><svg class="arrow-back-top" width="20" height="23" viewBox="0 0 20 23" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M18.4608 9.3106L18.7475 9.58955L19.0264 9.30287L18.7397 9.02392L18.4608 9.3106ZM9.86986 0.951415L10.1488 0.664732V0.664732L9.86986 0.951415ZM17.9029 9.88397L17.6239 10.1706L17.9106 10.4496L18.1896 10.1629L17.9029 9.88397ZM9.99091 2.18542L10.2699 1.89873L9.59091 1.2381V2.18542H9.99091ZM9.99091 22.5159V22.9159H10.3909V22.5159H9.99091ZM9.19092 22.5159H8.79092V22.9159H9.19092V22.5159ZM9.19092 2.18542H9.59091V1.2381L8.91197 1.89873L9.19092 2.18542ZM1.27896 9.88397L0.992273 10.1629L1.27122 10.4496L1.55791 10.1706L1.27896 9.88397ZM0.721056 9.3106L0.442106 9.02392L0.155424 9.30287L0.434374 9.58955L0.721056 9.3106ZM9.31196 0.951415L9.03302 0.664732V0.664732L9.31196 0.951415ZM9.59091 0.67999L9.86986 0.393307L9.59091 0.121882L9.31196 0.393307L9.59091 0.67999ZM18.7397 9.02392L10.1488 0.664732L9.59091 1.2381L18.1818 9.59728L18.7397 9.02392ZM18.1896 10.1629L18.7475 9.58955L18.1741 9.03165L17.6162 9.60502L18.1896 10.1629ZM9.71196 2.4721L17.6239 10.1706L18.1818 9.59728L10.2699 1.89873L9.71196 2.4721ZM10.3909 22.5159V2.18542H9.59091L9.59091 22.5159H10.3909ZM9.19092 22.9159H9.99091V22.1159H9.19092V22.9159ZM8.79092 2.18542L8.79092 22.5159H9.59091L9.59091 2.18542H8.79092ZM1.55791 10.1706L9.46986 2.4721L8.91197 1.89873L1.00001 9.59728L1.55791 10.1706ZM0.434374 9.58955L0.992273 10.1629L1.56564 9.60502L1.00774 9.03165L0.434374 9.58955ZM9.03302 0.664732L0.442106 9.02392L1.00001 9.59728L9.59091 1.2381L9.03302 0.664732ZM9.31196 0.393307L9.03302 0.664732L9.59091 1.2381L9.86986 0.966673L9.31196 0.393307ZM10.1488 0.664732L9.86986 0.393307L9.31196 0.966673L9.59091 1.2381L10.1488 0.664732Z" />
+          </svg>
+          <p> back to the top</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/index.js"></script>
+</body>
+
+</html>

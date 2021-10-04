@@ -1,0 +1,309 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, text {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#hero-section h1 {
+  font-weight: 700;
+  color: #fff;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  padding: 3% 10%;
+}
+
+#no-results p {
+  font-weight: 300;
+}
+
+.containerHeroSection {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3% 10%;
+}
+
+#arrow-down {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2.5s infinite;
+}
+
+#arrow-down img {
+  width: 30px;
+}
+
+/* bounce effect */
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Selects filter */
+
+select {
+  width: 205px;
+  border: 1px solid #A8A8A8;
+  box-sizing: border-box;
+  border-radius: 19px;
+  padding: 10px 10px;
+  color: #A8A8A8;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+*, *:focus, *:hover {
+  outline: none;
+}
+
+select.form-control {
+  appearance: none !important;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url(../images/icons/arrow-down-select.svg);
+  background-position: calc(100% - 15px) calc(1em + -5px), 1.5em;
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+}
+
+select.form-control:focus {
+  appearance: none !important;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url(../images/icons/arrow-select.svg);
+  background-position: calc(100% - 15px) calc(1em + -5px), 1.5em;
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+}
+
+.form-control option {
+  font-size: 14px;
+}
+
+.form-control option:hover {
+  background: #75BC97;
+  color: #fff;
+}
+
+::selection, select:focus::-ms-value, option:checked, option:checked:hover, select:focus option:checked:hover {
+  background-color: #75BC97 !important;
+  color: #ffffff;
+}
+
+/* end of selects filter */
+
+/* selects (filter) section */
+
+.filter p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 22px;
+  color: #848484;
+}
+
+.filter img {
+  width: 5vw;
+}
+
+/* section of no results yet */
+
+#no-results {
+  background: #F2F2F2;
+  color: #A9A9A9;
+}
+
+/* media queries for mobile */
+
+@media (max-width: 999px) {
+  .filter {
+    display: flex;
+    flex-direction: column;
+  }
+  .sun-filter, .water-filter, .pet-filter {
+    margin-bottom: 30px;
+  }
+  select {
+    width: 100% !important;
+  }
+  .desktop {
+    display: none;
+  }
+  .container {
+    padding: 10% 5% !important;
+  }
+  #hero-section {
+    padding-top: 10%;
+  }
+  #hero-section {
+    background-color: #75BC97 !important;
+    /* padding: 50px 50px; */
+    background: url(../images/hero/mobile/mobile-leaves.png) top center no-repeat, url(../images/hero/mobile/mobile-plantperson.png) center bottom no-repeat;
+    height: 170vw;
+    background-size: 100% 100%, 100% 45%;
+    background-repeat: no-repeat;
+    background-position: 0px -37vh, 10px 93%;
+  }
+  #no-results h2 {
+    font-weight: 700;
+    font-size: 15vw;
+    line-height: 15vw;
+  }
+  #no-results p {
+    font-size: 5.8vw;
+    line-height: 7vw;
+  }
+}
+
+/* end of media queries for mobile */
+
+/* media queries for desktop */
+
+@media (min-width: 1000px) {
+  #hero-section h1 {
+    font-size: 9vh;
+    line-height: 11vh;
+  }
+  .filter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #hero-section {
+    background-color: #75BC97 !important;
+    /* padding: 50px 50px; */
+    background: url(../images/hero/desktop/left-leaves.png) left top no-repeat, url(../images/hero/desktop/right-leaves.png) right top repeat, url(../images/hero/desktop/plantperson.png) center center repeat;
+    height: 75vh;
+    background-size: 53% 100%, 30% 100%, 25% 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 0px, 100% 0px, 66% 0px;
+  }
+  .no-results {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  #no-results h2 {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 55px;
+  }
+  #no-results p {
+    font-size: 1.3vw;
+    line-height: 2vw;
+  }
+  .results, .no-results {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*end of media queries for desktop */
+
+.pick-img {
+  width: 200px;
+}
+
+#results {
+  background-color: #F2F2F2;
+}
+
+#results h2 {
+  font-weight: bold;
+  font-size: 55px;
+  line-height: 67px;
+}
+
+/* CTA back to the top */
+
+.back-top {
+  margin-top: 1%;
+}
+
+.back-top a {
+  transition: all 300ms;
+  display: flex;
+  width: 100%;
+  border: 1px solid #15573F;
+  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 25px;
+  font-weight: 300;
+  font-size: 16px;
+  text-decoration: none;
+  line-height: 20px;
+  color: #196146;
+  flex-direction: row;
+  align-items: center;
+}
+
+.back-top a:hover {
+  transition: all 300ms;
+  background-color: #15573F;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.back-top p {
+  margin-left: 20px;
+}
+
+/* end of CTA back to the top */
+
+svg {
+  transition: all 300ms;
+  fill: #15573F;
+}
+
+.back-top:hover svg {
+  fill: white !important;
+}
+
+@media (min-width:300px) and (max-width: 600px) {
+  #hero-section h1 {
+    font-size: 12vw;
+    line-height: 15vw;
+  }
+}
+
+@media (min-width:601px) and (max-width: 999px) {
+  #hero-section h1 {
+    font-size: 12vw;
+    line-height: 15vw;
+  }
+  #hero-section {
+    background-color: #75BC97 !important;
+    /* padding: 50px 50px; */
+    background: url(../images/hero/mobile/mobile-leaves.png) top center no-repeat, url(../images/hero/mobile/mobile-plantperson.png) center bottom no-repeat;
+    height: 170vw;
+    background-size: 100% 100%, 100% 45%;
+    background-repeat: no-repeat;
+    background-position: 0px -70vh, 10px 93%;
+}
+}
